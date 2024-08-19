@@ -1,5 +1,9 @@
 <template>
   <div >
+    <div class="header">
+      <div class="left-text">Zzk & Hyj</div>
+      <div class="right-text">喜欢花 . 喜欢浪漫 . 喜欢你</div>
+    </div>
     <div class="banner">
       <div class="title">
         <div class="title-2">记录我们的小站</div>
@@ -15,8 +19,14 @@
         </div>
       </div>
     </div>
+    <!-- <WaveOcean /> -->
     <main>
-      <Countdown startDate="2020-12-29T00:00:00" />
+      <div class="countdown">
+        <Countdown startDate="2020-12-29T00:00:00" />
+      </div>
+      <div class="menu">
+        <Menu />
+      </div>
     </main>
     <!-- <footer>
       <p>Footer Content</p>
@@ -26,25 +36,39 @@
 
 <script setup>
 import Countdown from '@/components/CountDown.vue';
+import Menu from '@/components/Menu.vue';
+import WaveOcean from '@/components/WaveOcean.vue';
 </script>
 
-<style>
+<style lang="scss">
 #app {
   text-align: center;
 }
 
-header {
+.header {
   height: 4.5rem;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0 20rem;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
+
+  .left-text {
+    color: #fff;
+    font-size: 2rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .right-text {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
 }
 
 nav {
@@ -70,9 +94,9 @@ nav ul li a {
   font-size: 1rem;
 }
 .banner {
-  height: 500px;
+  height: 650px;
   width: 100%;
-  background-image: url("../assets/images/网图1.png");
+  background-image: url("../assets/images/网图4.png");
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -86,7 +110,7 @@ nav ul li a {
 
 .title {
   position: absolute;
-  top: 10%;
+  top: 20%;
   font-family: 'Courgette', sans-serif;
   font-weight: 600;
   color: #404040;
@@ -100,7 +124,7 @@ nav ul li a {
 }
 
 .centered-box {
-  margin-top: 100px;
+  margin-top: 150px;
   width: 600px;
   height: 200px;
   background: rgba(255, 255, 255, 0.5);
