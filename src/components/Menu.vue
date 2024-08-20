@@ -1,20 +1,20 @@
 <template>
   <div class="menu">
-    <div class="menu_item">
+    <div class="menu_item" @click="routerto('lovelist')">
       <img src="../assets/images/list.png" alt="">
       <div class="text">
         <h3>Love list</h3>
         <p>100件浪漫的小事</p>
       </div>
     </div>
-    <div class="menu_item">
+    <div class="menu_item" @click="routerto('messageboard')">
       <img src="../assets/images/Message-board.png" alt="">
       <div class="text">
         <h3>留言板</h3>
         <p>写下对我们的祝福</p>
       </div>
     </div>
-    <div class="menu_item">
+    <div class="menu_item" @click="routerto('camara')">
       <img src="../assets/images/camara.png" alt="">
       <div class="text">
         <h3>画廊</h3>
@@ -25,7 +25,14 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
+import { ref } from 'vue';
 
+const router = useRouter();
+
+const routerto = (path) => {
+  router.push(path);
+}
 </script>
 
 <style lang="scss" scoped>

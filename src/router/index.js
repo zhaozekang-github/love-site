@@ -6,13 +6,26 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('../views/index.vue')
+      component: () => import('../views/index.vue'),
+      children: [
+        {
+          path: '/lovelist',
+          name: 'Lovelist',
+          component: () => import('../views/LoveList.vue')
+        },
+        {
+          path: '/messageboard',
+          name: 'Messageboard',
+          component: () => import('../views/MessageBoard.vue')
+        },
+        {
+          path: '/camara',
+          name: 'Camara',
+          component: () => import('../views/Camara.vue')
+        }
+      ]
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: () => import('../views/AboutView.vue')
-    // }
+    
   ]
 })
 

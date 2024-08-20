@@ -4,7 +4,8 @@ import index from './views/index.vue';
 </script>
 
 <template>
-  <index />
+  <router-view></router-view>
+  <!-- <index /> -->
 </template>
 
 <style scoped>

@@ -28,6 +28,9 @@
         <Menu />
       </div>
     </main>
+    <transition name="slide-fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
     <!-- <footer>
       <p>Footer Content</p>
     </footer> -->
@@ -96,7 +99,7 @@ nav ul li a {
 .banner {
   height: 650px;
   width: 100%;
-  background-image: url("../assets/images/网图4.png");
+  background-image: url("../assets/images/bannerBackground.png");
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -161,5 +164,12 @@ footer {
   color: #fff;
   padding: 1rem;
   width: 100%;
+}
+.slide-fade-enter-active, .slide-fade-leave-active {
+  transition: all 0.5s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to /* .slide-fade-leave-active 在 2.1.8+ */ {
+  transform: translateY(50%);
+  opacity: 0;
 }
 </style>
