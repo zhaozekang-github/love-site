@@ -6,8 +6,14 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
+      redirect: "/time",
       component: () => import('../views/index.vue'),
       children: [
+        {
+          path: '/time',
+          name: 'Time',
+          component: () => import('../views/TimeMaster.vue')
+        },
         {
           path: '/lovelist',
           name: 'Lovelist',

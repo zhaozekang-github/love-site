@@ -42,8 +42,8 @@ import unselect from "../assets/images/unselect.png";
 const activeNames = ref([])
 const handleChange = (val) => {
   console.log(val,activeNames.value)
-  tasks.forEach(task => {
-    task.expanded = activeNames.includes(task.id);
+  tasks.value.forEach(task => {
+    task.expanded = activeNames.value.includes(task.id);
   });
   
 }
@@ -52,6 +52,10 @@ const handleChange = (val) => {
 const tasks = ref([
   { id: 1, name: '任务 1', description: '这是任务 1 的描述', completed: false, expanded: false, date: null },
   { id: 2, name: '任务 2', description: '这是任务 2 的描述', completed: false, expanded: false, date: null },
+  { id: 3, name: '任务 3', description: '这是任务 3 的描述', completed: false, expanded: false, date: null },
+  { id: 4, name: '任务 4', description: '这是任务 4 的描述', completed: false, expanded: false, date: null },
+  { id: 5, name: '任务 5', description: '这是任务 5 的描述', completed: false, expanded: false, date: null },
+  { id: 6, name: '任务 6', description: '这是任务 6 的描述', completed: false, expanded: false, date: null },
   // 可以添加更多任务
 ]);
 

@@ -22,7 +22,7 @@
     <!-- <WaveOcean /> -->
     <main>
       <div class="countdown">
-        <Countdown startDate="2020-12-29T00:00:00" />
+        
       </div>
       <div class="menu">
         <Menu />
