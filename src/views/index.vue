@@ -3,6 +3,7 @@
     <div class="header">
       <div class="left-text">Zzk & Hyj</div>
       <div class="right-text">喜欢花 . 喜欢浪漫 . 喜欢你</div>
+      <div class="user" @click="handleUser"><img src="../assets/images/user.png" alt=""></div>
     </div>
     <div class="banner">
       <div class="title">
@@ -34,13 +35,54 @@
     <!-- <footer>
       <p>Footer Content</p>
     </footer> -->
+
+    <!-- 登录弹框 -->
+    <el-dialog v-model="loginDialog" title="Shipping address" width="380">
+    <el-form :model="form" ref="loginFromRef" :rules="rules">
+      <el-form-item label="用户名" prop="username" :label-width="formLabelWidth">
+        <el-input v-model="form.username" autocomplete="off" />
+      </el-form-item>
+      <el-form-item label="密码" prop="password" :label-width="formLabelWidth">
+        <el-input
+          v-model="form.password"
+          type="password"
+          autocomplete="off"
+        />
+      </el-form-item>
+    </el-form>
+
+    <div slot="footer" class="dialog-footer">
+      <el-button type="primary" @click="handleLogin()">登 录</el-button>
+    </div>
+  </el-dialog>
   </div>
 </template>
 
 <script setup>
-import Countdown from '@/components/CountDown.vue';
+import { ref, reactive } from 'vue';
 import Menu from '@/components/Menu.vue';
-import WaveOcean from '@/components/WaveOcean.vue';
+import User from '../api/user'
+
+const loginDialog = ref(false)
+const form = reactive({
+  username: '',
+  password: '',
+})
+
+const rules = reactive({
+  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+  password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+})
+
+const handleUser = () => {
+  loginDialog.value = true
+}
+
+const handleLogin = () => {
+  User.login(form).then(res => {
+
+  })
+}
 </script>
 
 <style lang="scss">
@@ -171,5 +213,20 @@ footer {
 .slide-fade-enter, .slide-fade-leave-to /* .slide-fade-leave-active 在 2.1.8+ */ {
   transform: translateY(50%);
   opacity: 0;
+}
+
+.user {
+  width: 30px;
+  height: 30px;
+  background: #b1b1b1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 60%;
+    object-fit: cover;
+  }
 }
 </style>
